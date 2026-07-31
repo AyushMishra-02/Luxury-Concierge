@@ -29,8 +29,14 @@ export default function Home() {
     }
 
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
-      const res = await fetch(`${apiUrl}/api/plan-trip`, {
+      let rawUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      // Sanitize URL: remove trailing slashes and ensure it starts with http
+      if (!rawUrl.startsWith("http")) rawUrl = `https://${rawUrl}`;
+      if (rawUrl.endsWith("/")) rawUrl = rawUrl.slice(0, -1);
+      
+      console.log("Attempting to fetch from:", `${rawUrl}/api/plan-trip`);
+      
+      const res = await fetch(`${rawUrl}/api/plan-trip`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
