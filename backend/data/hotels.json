@@ -1,0 +1,102 @@
+[
+  {
+    "id": "exp_001",
+    "name": "Royal Suite at Taj Lake Palace",
+    "location": "Udaipur, India",
+    "price_per_night": 2500,
+    "description": "Experience the grandeur of a bygone era in this floating marble palace on Lake Pichola. The Royal Suite offers panoramic views, private butler service, and exquisite heritage decor.",
+    "amenities": ["Private Butler", "Lake View", "Spa Access", "Fine Dining", "Airport Transfer in Vintage Car"],
+    "category": "Palace Hotel",
+    "rating": 4.9
+  },
+  {
+    "id": "exp_002",
+    "name": "Private Yacht Charter through Kerala Backwaters",
+    "location": "Kerala, India",
+    "price_per_night": 3200,
+    "description": "Sail through the serene backwaters of Kerala on a luxury private houseboat yacht. Enjoy authentic Kerala cuisine prepared by a private chef, personalized spa treatments, and complete privacy.",
+    "amenities": ["Private Chef", "Ayurvedic Spa on Board", "Guided Village Tours", "Sun Deck", "Premium Spirits"],
+    "category": "Yacht",
+    "rating": 4.8
+  },
+  {
+    "id": "exp_003",
+    "name": "Helicopter Tour & Alpine Lodge Retreat",
+    "location": "Zermatt, Switzerland",
+    "price_per_night": 4500,
+    "description": "Arrive by private helicopter to an exclusive alpine lodge overlooking the Matterhorn. Includes private ski instruction, an outdoor heated infinity pool, and a wine cellar.",
+    "amenities": ["Helicopter Transfer", "Private Ski Guide", "Infinity Pool", "Wine Cellar", "Sauna"],
+    "category": "Alpine Lodge",
+    "rating": 5.0
+  },
+  {
+    "id": "exp_004",
+    "name": "Overwater Villa at Soneva Jani",
+    "location": "Noonu Atoll, Maldives",
+    "price_per_night": 5500,
+    "description": "A breathtaking overwater villa with a retractable roof for stargazing, a private water slide into the lagoon, and a dedicated 'Mr. or Ms. Friday' butler.",
+    "amenities": ["Water Slide", "Retractable Roof", "Private Pool", "Dedicated Butler", "Outdoor Cinema"],
+    "category": "Beachfront",
+    "rating": 4.9
+  },
+  {
+    "id": "exp_005",
+    "name": "Desert Oasis Pavilion at Amangiri",
+    "location": "Utah, USA",
+    "price_per_night": 3800,
+    "description": "A secluded pavilion seamlessly blending into the dramatic desert landscape. Features a private plunge pool, fire pit, and exclusive access to guided slot canyon tours.",
+    "amenities": ["Plunge Pool", "Fire Pit", "Guided Canyon Tours", "Desert Lounge", "Wellness Spa"],
+    "category": "Desert Retreat",
+    "rating": 4.9
+  },
+  {
+    "id": "exp_006",
+    "name": "Penthouse Suite at The Ritz Paris",
+    "location": "Paris, France",
+    "price_per_night": 8000,
+    "description": "Epitome of Parisian luxury with views of Place Vendôme. Features antique furnishings, a private terrace, and VIP access to exclusive fashion events.",
+    "amenities": ["Private Terrace", "VIP Shopping Experience", "Michelin Star Dining", "Chauffeur Service", "Luxury Spa"],
+    "category": "City Luxury",
+    "rating": 5.0
+  },
+  {
+    "id": "exp_007",
+    "name": "Exclusive Safari Lodge at Singita",
+    "location": "Serengeti, Tanzania",
+    "price_per_night": 4200,
+    "description": "An unparalleled safari experience offering luxurious private lodges, daily guided game drives with expert trackers, and sunset wine tastings in the bush.",
+    "amenities": ["Private Safari Vehicle", "Expert Tracker", "Wine Tasting", "Infinity Pool", "Gourmet Dining"],
+    "category": "Safari",
+    "rating": 4.9
+  },
+  {
+    "id": "exp_008",
+    "name": "Cliffside Villa at Canaves Oia",
+    "location": "Santorini, Greece",
+    "price_per_night": 2800,
+    "description": "Stunning caldera views from a private whitewashed villa built into the cliff. Features an infinity pool, romantic sunset dinners, and a private catamaran cruise.",
+    "amenities": ["Infinity Pool", "Caldera View", "Catamaran Cruise", "Private Dining", "Wine Cellar"],
+    "category": "Coastal",
+    "rating": 4.8
+  },
+  {
+    "id": "exp_009",
+    "name": "Rainforest Treehouse at Silky Oaks Lodge",
+    "location": "Daintree Rainforest, Australia",
+    "price_per_night": 1800,
+    "description": "Immerse yourself in the world's oldest rainforest in a luxurious treehouse overlooking the Mossman River. Includes guided rainforest walks and holistic spa therapies.",
+    "amenities": ["River View", "Guided Nature Walks", "Healing Waters Spa", "Outdoor Bath", "Organic Dining"],
+    "category": "Nature Retreat",
+    "rating": 4.7
+  },
+  {
+    "id": "exp_010",
+    "name": "Historic Castle Stay at Ashford Castle",
+    "location": "County Mayo, Ireland",
+    "price_per_night": 2200,
+    "description": "Live like royalty in a restored 800-year-old castle. Enjoy traditional activities like falconry, horseback riding, and clay pigeon shooting on the 350-acre estate.",
+    "amenities": ["Falconry", "Equestrian Center", "Golf Course", "Cinema", "Gourmet Dining"],
+    "category": "Castle",
+    "rating": 4.8
+  }
+]
