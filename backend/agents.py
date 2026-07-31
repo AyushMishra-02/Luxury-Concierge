@@ -1,6 +1,8 @@
 from typing import TypedDict, Annotated, List
 from langchain_core.messages import BaseMessage, HumanMessage, SystemMessage
 from langgraph.graph import StateGraph, START, END
+from langgraph.graph.message import add_messages
+from langgraph.checkpoint.memory import MemorySaver
 from langchain_groq import ChatGroq
 from langchain_core.tools import tool
 import database
@@ -21,7 +23,7 @@ def search_luxury_hotels(query: str) -> str:
 
 # Define State
 class GraphState(TypedDict):
-    user_query: str
+    messages: Annotated[list, add_messages]
     parsed_requirements: str
     hotel_options: str
     final_itinerary: str
@@ -32,13 +34,15 @@ llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
 
 def intake_node(state: GraphState):
     print("--- INTAKE AGENT ---")
-    messages = [
-        SystemMessage(content="You are a luxury travel concierge intake agent. "
-                              "Extract the destination, budget, dates, and any preferences from the user's query. "
-                              "Format the output as a clean summary."),
-        HumanMessage(content=state["user_query"])
-    ]
-    response = llm.invoke(messages)
+    sys_msg = SystemMessage(content="You are a luxury travel concierge intake agent. "
+                              "Review the entire conversation and extract the CURRENT destination, budget, dates, and any preferences. "
+                              "If the user is updating or refining their previous request, ensure your summary reflects those changes. "
+                              "Format the output as a clean summary.")
+    
+    # We pass the system message + the entire conversation history to the LLM
+    prompt_messages = [sys_msg] + state["messages"]
+    
+    response = llm.invoke(prompt_messages)
     return {"parsed_requirements": response.content}
 
 def researcher_node(state: GraphState):
@@ -67,15 +71,24 @@ def researcher_node(state: GraphState):
 
 def itinerary_node(state: GraphState):
     print("--- ITINERARY AGENT ---")
+    
+    # Get the latest user query from the message history to pass context
+    latest_query = state["messages"][-1].content if state["messages"] else ""
+    
     messages = [
         SystemMessage(content="You are a luxury travel itinerary planner. "
-                              "Create a luxurious, day-by-day 3-day itinerary based on the selected hotel options and user requirements. "
+                              "Create a luxurious, day-by-day itinerary based on the selected hotel options and user requirements. "
                               "The itinerary should include exclusive activities, fine dining, and relaxation. "
-                              "Output the final itinerary formatted in Markdown."),
-        HumanMessage(content=f"User Query: {state['user_query']}\nRequirements: {state['parsed_requirements']}\nHotel Options: {state['hotel_options']}")
+                              "Output the final itinerary formatted in Markdown. Do not include pleasantries, just the itinerary."),
+        HumanMessage(content=f"Latest User Query: {latest_query}\nRequirements: {state['parsed_requirements']}\nHotel Options: {state['hotel_options']}")
     ]
     response = llm.invoke(messages)
-    return {"final_itinerary": response.content}
+    
+    # Return the new itinerary, AND append it to the chat history so the agent remembers it next time!
+    return {
+        "final_itinerary": response.content,
+        "messages": [response]
+    }
 
 # Build Graph
 workflow = StateGraph(GraphState)
@@ -89,4 +102,6 @@ workflow.add_edge("intake", "researcher")
 workflow.add_edge("researcher", "itinerary")
 workflow.add_edge("itinerary", END)
 
-travel_agent_app = workflow.compile()
+# Compile with MemorySaver to persist state across follow-up questions
+memory = MemorySaver()
+travel_agent_app = workflow.compile(checkpointer=memory)

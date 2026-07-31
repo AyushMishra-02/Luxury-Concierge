@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 import uvicorn
 from agents import travel_agent_app
+from langchain_core.messages import HumanMessage
 
 app = FastAPI(title="The Luxury Concierge API")
 
@@ -17,6 +18,7 @@ app.add_middleware(
 
 class TripRequest(BaseModel):
     query: str
+    session_id: str = "default_session"
 
 class TripResponse(BaseModel):
     parsed_requirements: str
@@ -26,16 +28,15 @@ class TripResponse(BaseModel):
 @app.post("/api/plan-trip", response_model=TripResponse)
 async def plan_trip(request: TripRequest):
     try:
-        # Initialize state
+        config = {"configurable": {"thread_id": request.session_id}}
+        
+        # Because we have memory, we only pass the newest message
         initial_state = {
-            "user_query": request.query,
-            "parsed_requirements": "",
-            "hotel_options": "",
-            "final_itinerary": ""
+            "messages": [HumanMessage(content=request.query)]
         }
         
-        # Invoke LangGraph workflow
-        result = travel_agent_app.invoke(initial_state)
+        # Invoke LangGraph workflow with thread config
+        result = travel_agent_app.invoke(initial_state, config=config)
         
         return TripResponse(
             parsed_requirements=result.get("parsed_requirements", ""),

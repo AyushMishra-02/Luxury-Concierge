@@ -1,102 +1,202 @@
 [
-  {
-    "id": "exp_001",
-    "name": "Royal Suite at Taj Lake Palace",
-    "location": "Udaipur, India",
-    "price_per_night": 2500,
-    "description": "Experience the grandeur of a bygone era in this floating marble palace on Lake Pichola. The Royal Suite offers panoramic views, private butler service, and exquisite heritage decor.",
-    "amenities": ["Private Butler", "Lake View", "Spa Access", "Fine Dining", "Airport Transfer in Vintage Car"],
-    "category": "Palace Hotel",
-    "rating": 4.9
-  },
-  {
-    "id": "exp_002",
-    "name": "Private Yacht Charter through Kerala Backwaters",
-    "location": "Kerala, India",
-    "price_per_night": 3200,
-    "description": "Sail through the serene backwaters of Kerala on a luxury private houseboat yacht. Enjoy authentic Kerala cuisine prepared by a private chef, personalized spa treatments, and complete privacy.",
-    "amenities": ["Private Chef", "Ayurvedic Spa on Board", "Guided Village Tours", "Sun Deck", "Premium Spirits"],
-    "category": "Yacht",
-    "rating": 4.8
-  },
-  {
-    "id": "exp_003",
-    "name": "Helicopter Tour & Alpine Lodge Retreat",
-    "location": "Zermatt, Switzerland",
-    "price_per_night": 4500,
-    "description": "Arrive by private helicopter to an exclusive alpine lodge overlooking the Matterhorn. Includes private ski instruction, an outdoor heated infinity pool, and a wine cellar.",
-    "amenities": ["Helicopter Transfer", "Private Ski Guide", "Infinity Pool", "Wine Cellar", "Sauna"],
-    "category": "Alpine Lodge",
-    "rating": 5.0
-  },
-  {
-    "id": "exp_004",
-    "name": "Overwater Villa at Soneva Jani",
-    "location": "Noonu Atoll, Maldives",
-    "price_per_night": 5500,
-    "description": "A breathtaking overwater villa with a retractable roof for stargazing, a private water slide into the lagoon, and a dedicated 'Mr. or Ms. Friday' butler.",
-    "amenities": ["Water Slide", "Retractable Roof", "Private Pool", "Dedicated Butler", "Outdoor Cinema"],
-    "category": "Beachfront",
-    "rating": 4.9
-  },
-  {
-    "id": "exp_005",
-    "name": "Desert Oasis Pavilion at Amangiri",
-    "location": "Utah, USA",
-    "price_per_night": 3800,
-    "description": "A secluded pavilion seamlessly blending into the dramatic desert landscape. Features a private plunge pool, fire pit, and exclusive access to guided slot canyon tours.",
-    "amenities": ["Plunge Pool", "Fire Pit", "Guided Canyon Tours", "Desert Lounge", "Wellness Spa"],
-    "category": "Desert Retreat",
-    "rating": 4.9
-  },
-  {
-    "id": "exp_006",
-    "name": "Penthouse Suite at The Ritz Paris",
-    "location": "Paris, France",
-    "price_per_night": 8000,
-    "description": "Epitome of Parisian luxury with views of Place Vendôme. Features antique furnishings, a private terrace, and VIP access to exclusive fashion events.",
-    "amenities": ["Private Terrace", "VIP Shopping Experience", "Michelin Star Dining", "Chauffeur Service", "Luxury Spa"],
-    "category": "City Luxury",
-    "rating": 5.0
-  },
-  {
-    "id": "exp_007",
-    "name": "Exclusive Safari Lodge at Singita",
-    "location": "Serengeti, Tanzania",
-    "price_per_night": 4200,
-    "description": "An unparalleled safari experience offering luxurious private lodges, daily guided game drives with expert trackers, and sunset wine tastings in the bush.",
-    "amenities": ["Private Safari Vehicle", "Expert Tracker", "Wine Tasting", "Infinity Pool", "Gourmet Dining"],
-    "category": "Safari",
-    "rating": 4.9
-  },
-  {
-    "id": "exp_008",
-    "name": "Cliffside Villa at Canaves Oia",
-    "location": "Santorini, Greece",
-    "price_per_night": 2800,
-    "description": "Stunning caldera views from a private whitewashed villa built into the cliff. Features an infinity pool, romantic sunset dinners, and a private catamaran cruise.",
-    "amenities": ["Infinity Pool", "Caldera View", "Catamaran Cruise", "Private Dining", "Wine Cellar"],
-    "category": "Coastal",
-    "rating": 4.8
-  },
-  {
-    "id": "exp_009",
-    "name": "Rainforest Treehouse at Silky Oaks Lodge",
-    "location": "Daintree Rainforest, Australia",
-    "price_per_night": 1800,
-    "description": "Immerse yourself in the world's oldest rainforest in a luxurious treehouse overlooking the Mossman River. Includes guided rainforest walks and holistic spa therapies.",
-    "amenities": ["River View", "Guided Nature Walks", "Healing Waters Spa", "Outdoor Bath", "Organic Dining"],
-    "category": "Nature Retreat",
-    "rating": 4.7
-  },
-  {
-    "id": "exp_010",
-    "name": "Historic Castle Stay at Ashford Castle",
-    "location": "County Mayo, Ireland",
-    "price_per_night": 2200,
-    "description": "Live like royalty in a restored 800-year-old castle. Enjoy traditional activities like falconry, horseback riding, and clay pigeon shooting on the 350-acre estate.",
-    "amenities": ["Falconry", "Equestrian Center", "Golf Course", "Cinema", "Gourmet Dining"],
-    "category": "Castle",
-    "rating": 4.8
-  }
+    {
+      "id": 1,
+      "name": "Aman Tokyo",
+      "location": "Tokyo, Japan",
+      "price_per_night": 2500,
+      "category": "Urban Resort",
+      "rating": 4.9,
+      "description": "High above the Japanese capital, Aman Tokyo offers serene, minimalist luxury. It features vast, light-filled rooms drawing inspiration from traditional Japanese residential design with Washi paper doors and deep soaking tubs overlooking the skyline.",
+      "amenities": ["Private Spa", "Indoor Pool", "Michelin-starred Dining", "Helipad Access", "Otemachi Forest"]
+    },
+    {
+      "id": 2,
+      "name": "The Brando",
+      "location": "Tetiaroa, French Polynesia",
+      "price_per_night": 4500,
+      "category": "Private Island",
+      "rating": 5.0,
+      "description": "An exquisite eco-resort on Marlon Brando's private island. Features 35 secluded villas with private plunge pools situated on white-sand beaches frequented by sea turtles and exotic birds. Access is via private plane.",
+      "amenities": ["Private Island", "Plunge Pools", "Varua Te Ora Polynesian Spa", "Organic Garden", "Eco-friendly"]
+    },
+    {
+      "id": 3,
+      "name": "Chalet Zermatt Peak",
+      "location": "Zermatt, Switzerland",
+      "price_per_night": 8000,
+      "category": "Mountain Chalet",
+      "rating": 4.9,
+      "description": "A premier luxury chalet perched high above the village of Zermatt, offering uninterrupted panoramic views of the Matterhorn. Includes a private chef, in-house wellness center, and ski-in/ski-out capabilities.",
+      "amenities": ["Private Chef", "Indoor/Outdoor Jacuzzi", "Ski-in/Ski-out", "Wellness Center", "Wine Cellar"]
+    },
+    {
+      "id": 4,
+      "name": "Necker Island",
+      "location": "British Virgin Islands",
+      "price_per_night": 130000,
+      "category": "Private Island",
+      "rating": 5.0,
+      "description": "Sir Richard Branson's private island paradise. Can be booked exclusively for up to 40 guests. Offers unparalleled privacy, pristine beaches, and endless water sports, along with a staff of 100 to cater to every whim.",
+      "amenities": ["Exclusive Island Use", "Kitesurfing", "Tennis Courts", "Submarine Excursions", "Infinity Pools"]
+    },
+    {
+      "id": 5,
+      "name": "Laucala Island Resort",
+      "location": "Fiji",
+      "price_per_night": 6000,
+      "category": "Private Island",
+      "rating": 4.9,
+      "description": "A 3,500-acre private island featuring 25 spectacular villas set amidst coconut plantations, sandy beaches, and volcanic mountains. Offers an 18-hole championship golf course and deep-sea submarine adventures.",
+      "amenities": ["Private Submarine", "18-hole Golf Course", "Equestrian Center", "Glass-bottom Boat", "Private Chef"]
+    },
+    {
+      "id": 6,
+      "name": "Cheval Blanc Randheli",
+      "location": "Noonu Atoll, Maldives",
+      "price_per_night": 3500,
+      "category": "Beach Resort",
+      "rating": 4.8,
+      "description": "Designed by Jean-Michel Gathy, this LVMH property redefines Maldivian luxury. Features loft-style villas over crystal-clear waters, a Guerlain Spa on its own island, and a fleet of private seaplanes.",
+      "amenities": ["Guerlain Spa", "Private Seaplane", "Overwater Villas", "Butler Service", "Diving Center"]
+    },
+    {
+      "id": 7,
+      "name": "Ritz-Carlton Reserve, Dorado Beach",
+      "location": "Puerto Rico",
+      "price_per_night": 2800,
+      "category": "Beach Resort",
+      "rating": 4.7,
+      "description": "An ultra-luxury sanctuary situated on a former plantation. Offers deeply immersive cultural and wellness experiences, oceanfront villas with plunge pools, and the unique five-acre Spa Botánico.",
+      "amenities": ["Spa Botánico", "Golf Course", "Plunge Pools", "Water Sports", "Fine Dining"]
+    },
+    {
+      "id": 8,
+      "name": "One&Only Gorilla's Nest",
+      "location": "Volcanoes National Park, Rwanda",
+      "price_per_night": 4000,
+      "category": "Safari Lodge",
+      "rating": 4.9,
+      "description": "Cushioned in the foothills of the breathtaking Virunga Volcano range, this ultra-luxury lodge is the ultimate base for mountain gorilla trekking. Treehouse-style suites blur the lines between indoors and nature.",
+      "amenities": ["Gorilla Trekking", "Treehouse Suites", "Wellness Spa", "Infinity Pool", "Helipad"]
+    },
+    {
+      "id": 9,
+      "name": "Royal Mansour",
+      "location": "Marrakech, Morocco",
+      "price_per_night": 2200,
+      "category": "Palace",
+      "rating": 4.8,
+      "description": "Commissioned by King Mohammed VI, this masterpiece of Moorish architecture replaces rooms with private multi-story riads. Staff access riads via underground tunnels to ensure absolute privacy for guests.",
+      "amenities": ["Private Riads", "Underground Tunnels", "Hammam", "Courtyard Pools", "Michelin-starred Dining"]
+    },
+    {
+      "id": 10,
+      "name": "The Plaza Hotel - Royal Suite",
+      "location": "New York City, USA",
+      "price_per_night": 40000,
+      "category": "Urban Resort",
+      "rating": 4.8,
+      "description": "A 4,500 square-foot three-bedroom suite overlooking Fifth Avenue and the Pulitzer Fountain. Features Versailles-inspired decor, a grand piano, private elevator access, and 24-karat gold-plated fixtures.",
+      "amenities": ["Private Elevator", "White Glove Butler", "Library", "Fitness Room", "Grand Piano"]
+    },
+    {
+      "id": 11,
+      "name": "Burj Al Arab Jumeirah",
+      "location": "Dubai, UAE",
+      "price_per_night": 2500,
+      "category": "Urban Resort",
+      "rating": 4.7,
+      "description": "The world's most iconic luxury hotel, known for its sail-shaped silhouette. Offers duplex suites with panoramic views of the Arabian Gulf, chauffeur-driven Rolls-Royces, and an acclaimed underwater restaurant.",
+      "amenities": ["Helipad", "Rolls-Royce Chauffeur", "Private Beach", "Talise Spa", "Underwater Restaurant"]
+    },
+    {
+      "id": 12,
+      "name": "Singita Sasakwa Lodge",
+      "location": "Serengeti, Tanzania",
+      "price_per_night": 3200,
+      "category": "Safari Lodge",
+      "rating": 5.0,
+      "description": "Perched on a rocky promontory with endless views of the Serengeti plains. Combines Edwardian manor grandeur with world-class wildlife viewing. Features grand suites with private infinity pools.",
+      "amenities": ["Private Safari Drives", "Equestrian Center", "Infinity Pools", "Wine Cellar", "Spa"]
+    },
+    {
+      "id": 13,
+      "name": "Amangiri",
+      "location": "Canyon Point, Utah, USA",
+      "price_per_night": 3800,
+      "category": "Desert Resort",
+      "rating": 4.9,
+      "description": "A spectacular modernist resort blending seamlessly into the dramatic red-rock landscape of the American Southwest. Features a vast Aman Spa, private pavilions, and exclusive access to slot canyons.",
+      "amenities": ["Aman Spa", "Slot Canyon Tours", "Heated Pools", "Private Pavilions", "Horseback Riding"]
+    },
+    {
+      "id": 14,
+      "name": "Villa d'Este",
+      "location": "Lake Como, Italy",
+      "price_per_night": 1800,
+      "category": "Historic Estate",
+      "rating": 4.8,
+      "description": "A 16th-century princely residence set on the shores of Lake Como. Surrounded by 25 acres of legendary gardens, offering timeless Renaissance elegance, a floating pool on the lake, and world-class Italian cuisine.",
+      "amenities": ["Floating Pool", "Renaissance Gardens", "Private Boat Tours", "Tennis Courts", "Fine Dining"]
+    },
+    {
+      "id": 15,
+      "name": "Octopus Superyacht",
+      "location": "Mediterranean Sea",
+      "price_per_night": 300000,
+      "category": "Luxury Yacht",
+      "rating": 5.0,
+      "description": "One of the world's largest and most recognizable superyachts available for charter. Features two helipads, a submarine, a glass-bottom pool, a music recording studio, and a crew of 60.",
+      "amenities": ["Two Helipads", "Submarine", "Recording Studio", "Glass-bottom Pool", "Cinema"]
+    },
+    {
+      "id": 16,
+      "name": "Fregate Island Private",
+      "location": "Seychelles",
+      "price_per_night": 5500,
+      "category": "Private Island",
+      "rating": 4.9,
+      "description": "A jewel of conservation in the Indian Ocean. Features 16 beautifully crafted villas integrated into the coastal landscape. Guests share the island with giant Aldabra tortoises and rare exotic birds.",
+      "amenities": ["Conservation Safaris", "Private Beaches", "Scuba Diving", "Rock Spa", "Personal Buggy"]
+    },
+    {
+      "id": 17,
+      "name": "The Post Oak Hotel",
+      "location": "Houston, Texas, USA",
+      "price_per_night": 1200,
+      "category": "Urban Resort",
+      "rating": 4.7,
+      "description": "Texas' most luxurious destination, featuring a multi-million dollar art collection, a two-story Rolls-Royce showroom, and a sprawling spa. The Penthouse suite offers its own helipad access.",
+      "amenities": ["Helipad", "Rolls-Royce Showroom", "Wine Cellar", "Luxury Spa", "Art Collection"]
+    },
+    {
+      "id": 18,
+      "name": "Badrutt's Palace Hotel",
+      "location": "St. Moritz, Switzerland",
+      "price_per_night": 2100,
+      "category": "Mountain Chalet",
+      "rating": 4.8,
+      "description": "The ultimate destination for the winter jet set. Overlooking Lake St. Moritz, this historic hotel boasts legendary parties, a sprawling spa carved into rock, and ski concierges to arrange everything.",
+      "amenities": ["Ski Concierge", "Palace Wellness", "Michelin-starred Dining", "Ice Rink", "Nightclub"]
+    },
+    {
+      "id": 19,
+      "name": "Four Seasons Tented Camp Golden Triangle",
+      "location": "Chiang Rai, Thailand",
+      "price_per_night": 3000,
+      "category": "Safari Lodge",
+      "rating": 4.9,
+      "description": "An immersive jungle experience where guests stay in ultra-luxury tents overlooking Myanmar and Laos. Offers ethical elephant interactions, jungle treks, and an open-air spa hidden in the bamboo forest.",
+      "amenities": ["Elephant Camp", "Jungle Spa", "River Cruises", "Custom Tents", "Wine Cellar"]
+    },
+    {
+      "id": 20,
+      "name": "Rosewood Castiglion del Bosco",
+      "location": "Tuscany, Italy",
+      "price_per_night": 2600,
+      "category": "Historic Estate",
+      "rating": 4.9,
+      "description": "An 800-year-old Tuscan estate situated in the UNESCO-protected Val d'Orcia. Features restored farmhouses turned luxury villas, a historic winery, and an 18-hole private golf course.",
+      "amenities": ["Private Villas", "Historic Winery", "18-hole Golf Course", "Cooking School", "Truffle Hunting"]
+    }
 ]
