@@ -2,8 +2,6 @@
 
 An ultra-premium, AI-powered travel agent that curates bespoke luxury itineraries, estates, private islands, and yachts around the globe. 
 
-![Uploading image.png…]()
-
 
 ## Architecture
 
@@ -72,14 +70,4 @@ A modern, glassmorphic UI built with **Next.js** and **React**.
    ```
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to experience the app!
 
-## Deployment
 
-### Backend (Render / Railway)
-- Deploy the `backend/` folder as a Python Web Service.
-- Set the Build Command to `pip install -r requirements.txt`.
-- Set the Start Command to `uvicorn main:app --host 0.0.0.0 --port $PORT`.
-- Add your `GROQ_API_KEY` to the environment variables.
-
-### Frontend (Vercel)
-- Deploy the `frontend/` folder as a Next.js project on Vercel.
-- Add an environment variable `NEXT_PUBLIC_API_URL` pointing to your deployed backend URL.
