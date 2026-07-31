@@ -53,6 +53,10 @@ def init_db():
     return vectorstore
 
 def get_retriever():
+    if not os.path.exists(CHROMA_PATH):
+        print("Vector DB not found. Initializing on the fly...")
+        init_db()
+    
     embeddings = HuggingFaceEmbeddings(model_name="all-MiniLM-L6-v2")
     vectorstore = Chroma(persist_directory=CHROMA_PATH, embedding_function=embeddings)
     # Return a retriever that fetches top 2 most relevant results
