@@ -2,7 +2,8 @@
 
 An ultra-premium, AI-powered travel agent that curates bespoke luxury itineraries, estates, private islands, and yachts around the globe. 
 
-![Luxury Concierge Demo](https://raw.githubusercontent.com/AyushMishra-02/Luxury-Concierge/main/frontend/public/window.svg) *(Replace with actual screenshot)*
+![Uploading image.png…]()
+
 
 ## Architecture
 
