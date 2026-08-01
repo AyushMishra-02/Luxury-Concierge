@@ -40,7 +40,10 @@ export default function Home() {
         }),
       });
 
-      if (!res.ok) throw new Error("Our concierges are currently engaged. Please try again.");
+      if (!res.ok) {
+        const errData = await res.json().catch(() => ({}));
+        throw new Error(errData.error || "Our concierges are currently engaged. Please try again.");
+      }
       
       const data = await res.json();
       setResponse(data);
