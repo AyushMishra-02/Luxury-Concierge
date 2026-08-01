@@ -11,5 +11,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the entire backend source code into the container
 COPY backend/ /app/
 
-# Run the FastAPI server, listening on the port provided by Render (or 10000 by default)
-CMD uvicorn main:app --host 0.0.0.0 --port ${PORT:-10000}
+# Run the FastAPI server, listening on port 7860 for HuggingFace Spaces
+CMD uvicorn main:app --host 0.0.0.0 --port 7860
