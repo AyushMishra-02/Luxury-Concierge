@@ -29,9 +29,12 @@ export default function Home() {
     }
 
     try {
-      console.log("Attempting to fetch from local proxy: /api/plan-trip");
+      // Bypassing Vercel's 10s Serverless timeout by fetching directly from Render
+      const rawUrl = "https://luxury-concierge.onrender.com";
       
-      const res = await fetch(`/api/plan-trip`, {
+      console.log("Attempting to fetch directly from:", `${rawUrl}/api/plan-trip`);
+      
+      const res = await fetch(`${rawUrl}/api/plan-trip`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ 
