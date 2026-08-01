@@ -1,4 +1,4 @@
-# The Luxury Concierge 🍾
+# The Luxury Concierge 
 
 An ultra-premium, AI-powered travel agent that curates bespoke luxury itineraries, estates, private islands, and yachts around the globe. 
 
