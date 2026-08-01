@@ -29,8 +29,8 @@ class GraphState(TypedDict):
     final_itinerary: str
 
 # Define Nodes
-# Using Groq's fast LLaMA 3.3 model
-llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0)
+# Using Groq's insanely fast 8B model for minimal latency (1-3 seconds instead of 60 seconds)
+llm = ChatGroq(model="llama3-8b-8192", temperature=0)
 
 def intake_node(state: GraphState):
     print("--- INTAKE AGENT ---")
@@ -93,15 +93,17 @@ def itinerary_node(state: GraphState):
 # Build Graph
 workflow = StateGraph(GraphState)
 
-workflow.add_node("intake", intake_node)
-workflow.add_node("researcher", researcher_node)
-workflow.add_node("itinerary", itinerary_node)
+# Add nodes
+workflow.add_node("parse_requirements", intake_node)
+workflow.add_node("retrieve_hotels", researcher_node)
+workflow.add_node("draft_itinerary", itinerary_node)
 
-workflow.add_edge(START, "intake")
-workflow.add_edge("intake", "researcher")
-workflow.add_edge("researcher", "itinerary")
-workflow.add_edge("itinerary", END)
+# Define edges
+workflow.add_edge(START, "parse_requirements")
+workflow.add_edge("parse_requirements", "retrieve_hotels")
+workflow.add_edge("retrieve_hotels", "draft_itinerary")
+workflow.add_edge("draft_itinerary", END)
 
-# Compile with MemorySaver to persist state across follow-up questions
+# Compile graph
 memory = MemorySaver()
 travel_agent_app = workflow.compile(checkpointer=memory)
