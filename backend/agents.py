@@ -41,18 +41,16 @@ def intake_node(state: GraphState):
 
 def researcher_node(state: GraphState):
     print("--- RESEARCHER AGENT ---")
-    # Bypass the LLM for research to save time! Just search the database directly.
-    query = state["parsed_requirements"]
-    retriever = database.get_retriever()
-    docs = retriever.invoke(query)
-    
-    if not docs:
-        options = "No specific hotels found. Suggest general luxury experiences."
-    else:
-        results = [doc.page_content for doc in docs]
-        options = "\n\n---\n\n".join(results)
-        
-    return {"hotel_options": options}
+    sys_msg = SystemMessage(content=(
+        "You are an elite luxury travel researcher. Based on the user's requirements, "
+        "recommend 2-3 TRUE, real-world ultra-luxury hotels or resorts specifically in their requested destination. "
+        "Provide real details like the hotel name, neighborhood/location, and exclusive amenities. "
+        "If they ask for a specific city like Udaipur, only recommend real 5-star hotels in Udaipur (e.g., Taj Lake Palace). "
+        "Do not hallucinate hotels or recommend hotels from the wrong country."
+    ))
+    messages = [sys_msg, HumanMessage(content=state["parsed_requirements"])]
+    response = llm.invoke(messages)
+    return {"hotel_options": response.content}
 
 def itinerary_node(state: GraphState):
     print("--- ITINERARY AGENT ---")

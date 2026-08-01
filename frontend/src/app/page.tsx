@@ -106,13 +106,13 @@ export default function Home() {
 
           <div className="editorial-card">
             <div className="prose">
-              <ReactMarkdown>{response.hotel_options}</ReactMarkdown>
+              <ReactMarkdown>{response.final_itinerary}</ReactMarkdown>
             </div>
           </div>
 
           <div className="editorial-card" style={{ borderTop: "2px solid var(--gold-accent)" }}>
             <div className="prose">
-              <ReactMarkdown>{response.final_itinerary}</ReactMarkdown>
+              <ReactMarkdown>{response.hotel_options}</ReactMarkdown>
             </div>
           </div>
           
