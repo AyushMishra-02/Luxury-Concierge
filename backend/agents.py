@@ -30,7 +30,7 @@ class GraphState(TypedDict):
 
 # Define Nodes
 # Using Groq's insanely fast 8B model for minimal latency (1-3 seconds instead of 60 seconds)
-llm = ChatGroq(model="llama3-8b-8192", temperature=0)
+llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
 
 def intake_node(state: GraphState):
     print("--- INTAKE AGENT ---")

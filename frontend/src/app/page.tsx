@@ -45,7 +45,7 @@ export default function Home() {
 
       if (!res.ok) {
         const errData = await res.json().catch(() => ({}));
-        throw new Error(errData.error || "Our concierges are currently engaged. Please try again.");
+        throw new Error(errData.detail || errData.error || "Our concierges are currently engaged. Please try again.");
       }
       
       const data = await res.json();
