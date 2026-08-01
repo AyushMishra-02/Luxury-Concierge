@@ -29,62 +29,49 @@ class GraphState(TypedDict):
     final_itinerary: str
 
 # Define Nodes
-# Using Groq's insanely fast 8B model for minimal latency (1-3 seconds instead of 60 seconds)
-llm = ChatGroq(model="llama-3.1-8b-instant", temperature=0)
+# Upgraded back to the brilliant 70B model for maximum luxury quality.
+llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.2)
 
 def intake_node(state: GraphState):
     print("--- INTAKE AGENT ---")
-    sys_msg = SystemMessage(content="You are a luxury travel concierge intake agent. "
-                              "Review the entire conversation and extract the CURRENT destination, budget, dates, and any preferences. "
-                              "If the user is updating or refining their previous request, ensure your summary reflects those changes. "
-                              "Format the output as a clean summary.")
-    
-    # We pass the system message + the entire conversation history to the LLM
+    sys_msg = SystemMessage(content="You are a luxury travel concierge. Extract the destination and preferences from the user's request. Keep it extremely brief, just 1-2 sentences.")
     prompt_messages = [sys_msg] + state["messages"]
-    
     response = llm.invoke(prompt_messages)
     return {"parsed_requirements": response.content}
 
 def researcher_node(state: GraphState):
     print("--- RESEARCHER AGENT ---")
-    researcher_llm = llm.bind_tools([search_luxury_hotels])
-    messages = [
-        SystemMessage(content="You are a luxury travel researcher. Use the search_luxury_hotels tool "
-                              "to find the best luxury experiences matching the requirements. "
-                              "Return a summary of the best options found."),
-        HumanMessage(content=f"Requirements: {state['parsed_requirements']}\n\nPlease search for appropriate luxury experiences.")
-    ]
+    # Bypass the LLM for research to save time! Just search the database directly.
+    query = state["parsed_requirements"]
+    retriever = database.get_retriever()
+    docs = retriever.invoke(query)
     
-    response = researcher_llm.invoke(messages)
-    if response.tool_calls:
-        # Execute the first tool call for simplicity
-        tool_call = response.tool_calls[0]
-        tool_output = search_luxury_hotels.invoke(tool_call["args"])
-        
-        # Add tool output to context and get final answer
-        messages.append(response)
-        messages.append(HumanMessage(content=f"Tool Output:\n{tool_output}\n\nBased on this, summarize the best options."))
-        final_response = llm.invoke(messages)
-        return {"hotel_options": final_response.content}
+    if not docs:
+        options = "No specific hotels found. Suggest general luxury experiences."
     else:
-        return {"hotel_options": response.content}
+        results = [doc.page_content for doc in docs]
+        options = "\n\n---\n\n".join(results)
+        
+    return {"hotel_options": options}
 
 def itinerary_node(state: GraphState):
     print("--- ITINERARY AGENT ---")
-    
-    # Get the latest user query from the message history to pass context
     latest_query = state["messages"][-1].content if state["messages"] else ""
     
+    sys_msg = SystemMessage(content=(
+        "You are an elite, world-class luxury travel concierge for ultra-high-net-worth individuals. "
+        "Create a breathtaking, ultra-luxurious, day-by-day itinerary based on the user's request and the provided hotel options. "
+        "Make the response incredibly detailed and premium. Include things like private helicopter transfers, Michelin-starred dining reservations, "
+        "VIP exclusive access, and private yacht charters. Use beautiful Markdown formatting with headers and bullet points. "
+        "Do not include basic pleasantries, just deliver the masterpiece itinerary."
+    ))
+    
     messages = [
-        SystemMessage(content="You are a luxury travel itinerary planner. "
-                              "Create a luxurious, day-by-day itinerary based on the selected hotel options and user requirements. "
-                              "The itinerary should include exclusive activities, fine dining, and relaxation. "
-                              "Output the final itinerary formatted in Markdown. Do not include pleasantries, just the itinerary."),
-        HumanMessage(content=f"Latest User Query: {latest_query}\nRequirements: {state['parsed_requirements']}\nHotel Options: {state['hotel_options']}")
+        sys_msg,
+        HumanMessage(content=f"User Request: {latest_query}\n\nSelected Hotel/Resort Options:\n{state['hotel_options']}")
     ]
     response = llm.invoke(messages)
     
-    # Return the new itinerary, AND append it to the chat history so the agent remembers it next time!
     return {
         "final_itinerary": response.content,
         "messages": [response]
