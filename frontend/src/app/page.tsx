@@ -29,7 +29,17 @@ export default function Home() {
     }
 
     try {
-      let rawUrl = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
+      let rawUrl = process.env.NEXT_PUBLIC_API_URL;
+      
+      // Foolproof fallback: if no environment variable is found, dynamically determine the backend URL
+      if (!rawUrl) {
+        if (typeof window !== "undefined" && window.location.hostname === "localhost") {
+          rawUrl = "http://localhost:8000";
+        } else {
+          rawUrl = "https://luxury-concierge.onrender.com";
+        }
+      }
+
       // Sanitize URL: remove trailing slashes and ensure it starts with http
       if (!rawUrl.startsWith("http")) rawUrl = `https://${rawUrl}`;
       if (rawUrl.endsWith("/")) rawUrl = rawUrl.slice(0, -1);
